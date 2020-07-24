@@ -12,8 +12,14 @@ pipeline {
   }
 
   stages {
+
+    stage('NPM Config') {
+      steps {
+        sh 'npm config ls'
+      }
+    }
     
-    stage('Install') {
+    stage('Build') {
       steps {
         sh 'npm install'
       }
@@ -25,7 +31,7 @@ pipeline {
       }
     }
 
-    stage('Build') {
+    stage('CRA Build') {
       steps {
         sh 'npm run build'
       }
